@@ -1,12 +1,13 @@
 # ECE Departmental Website V-2
 
 ## Technologies
+
 **This project was created with the following technologies**
 * [Django RESTful Framework](https://github.com/encode/django-rest-framework)
-For full documentation, visit [https://www.django-rest-framework.org/].
+For full documentation, visit [https://www.django-rest-framework.org/](https://www.django-rest-framework.org/).
 
 * [React JS](https://github.com/reactjs/reactjs.org)
-For full documentation, visit [https://www.reactjs.org/docs/].
+For full documentation, visit [https://www.reactjs.org/docs/](https://www.reactjs.org/docs/).
 
 ---
 
