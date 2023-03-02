@@ -27,7 +27,7 @@ class RegisterAPIView(generics.GenericAPIView):
             "success": "User created Successfully!!!",
             "user": UserSerializer(user, context=self.get_serializer_context()).data,
         }, status=status.HTTP_201_CREATED)
-        
+
 
 class UpdateAPIResponseView(generics.UpdateAPIView):
     queryset = User.objects.all()
@@ -65,7 +65,7 @@ class ChangePasswordAPIView(generics.UpdateAPIView):
                 'status': status.HTTP_200_OK
             })
         return Response(serializer.errors, status.HTTP_406_NOT_ACCEPTABLE)
-
+        
         
 class LoginAPIView(KnoxLoginView):
     permission_classes = [permissions.AllowAny]
@@ -76,8 +76,8 @@ class LoginAPIView(KnoxLoginView):
         user = serializer.validated_data['user']
         login(request, user)
         return super(LoginAPIView, self).post(request, format=None)
- 
- 
+    
+
 class ResetPasswordEmailView(generics.GenericAPIView):
     serializer_class = ResetPasswordEmailSerializer
     permission_classes = [permissions.AllowAny]
@@ -117,8 +117,8 @@ class ResetPasswordEmailView(generics.GenericAPIView):
             return Response({
                 'error': 'Invalid Details!!',
                 'status': status.HTTP_404_NOT_FOUND
-            })
-                   
+            })                  
+
 
 class ResetPasswordView(generics.GenericAPIView):
     serializer_class = ResetPasswordSerializer
@@ -143,14 +143,14 @@ class ResetPasswordView(generics.GenericAPIView):
             return Response({
                     'error': "Invalid Token",
                     'status': status.HTTP_404_NOT_FOUND
-                })  
-  
+                })          
+        
     
 class PDFAPIView(generics.ListAPIView):
     queryset = PDFModel.objects.all()
     serializer_class = PDFSerializer
-  
-  
+    
+
 
 register_apiView = RegisterAPIView.as_view()
 update_view = UpdateAPIResponseView.as_view()

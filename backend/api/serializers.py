@@ -42,7 +42,8 @@ class UpdateSerializer(serializers.ModelSerializer):
         if User.objects.exclude(pk=user.pk).filter(email=value).exists():
             raise serializers.ValidationError({"email": "A User with this email already exists"})
         return value
-      
+    
+   
     
 class ChangePasswordSerializer(serializers.Serializer):
     old_password = serializers.CharField(style={'input_type':'password'}, write_only=True)
@@ -91,7 +92,6 @@ class ResetPasswordSerializer(serializers.Serializer):
             raise serializers.ValidationError({"password": "Passwords don\'t match"})
         return attrs
 
-    
 class PDFSerializer(serializers.ModelSerializer):
     category_data = serializers.SerializerMethodField(read_only=True)
     class Meta:
